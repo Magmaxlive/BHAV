@@ -98,12 +98,13 @@ export default function HeroSection() {
         <figure className="relative order-first mx-auto w-full max-w-[520px] lg:order-last lg:max-w-none">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-bhav-crimson/20">
             <Image
-              src="/images/shobana.jpg"
+              src="/images/hero.jpg"
               alt="Padma Bhushan Shobana"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 520px"
-              className="object-cover object-center"
+              className="object-cover"
+              style={{ objectPosition: "75% center" }}
             />
             <div
               aria-hidden="true"

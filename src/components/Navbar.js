@@ -64,27 +64,27 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
+        <div className="flex items-center gap-3">
           <a
             href={TICKET_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-on-dark"
-            style={{ minHeight: "44px", padding: "0 1.25rem", fontSize: "0.875rem" }}
+            style={{ minHeight: "40px", padding: "0 1rem", fontSize: "0.8125rem" }}
           >
-            Book Your Tickets
+            Book Your Ticket
           </a>
-        </div>
 
-        <button
-          type="button"
-          aria-label={drawerOpen ? "Close menu" : "Open menu"}
-          aria-expanded={drawerOpen}
-          onClick={() => setDrawerOpen((v) => !v)}
-          className="relative z-50 text-bhav-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bhav-gold lg:hidden"
-        >
-          {drawerOpen ? <X /> : <Menu />}
-        </button>
+          <button
+            type="button"
+            aria-label={drawerOpen ? "Close menu" : "Open menu"}
+            aria-expanded={drawerOpen}
+            onClick={() => setDrawerOpen((v) => !v)}
+            className="relative z-50 text-bhav-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bhav-gold lg:hidden"
+          >
+            {drawerOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </nav>
 
       {drawerOpen && (

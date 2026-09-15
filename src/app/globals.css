@@ -1,36 +1,259 @@
 @import "tailwindcss";
 
+/* --------------------------------------------------------------------------
+ * Amerigo BT (self-hosted). Files expected at /public/fonts/amerigo-bt/.
+ * If any file is missing the browser falls back to the highlight stack.
+ * -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Amerigo BT";
+  src: url("/fonts/amerigo-bt/AmerigoBT-Roman.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Amerigo BT";
+  src: url("/fonts/amerigo-bt/AmerigoBT-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Amerigo BT";
+  src: url("/fonts/amerigo-bt/AmerigoBT-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Amerigo BT";
+  src: url("/fonts/amerigo-bt/AmerigoBT-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #ffffff;
+  /* Brand palette */
+  --bhav-maroon: #530000;
+  --bhav-crimson: #970601;
+  --bhav-cream: #FCE2BE;
+  --bhav-gold: #FFD18F;
+
+  /* Roles */
+  --surface-dark: var(--bhav-maroon);
+  --surface-accent: var(--bhav-crimson);
+  --surface-light: var(--bhav-cream);
+  --surface-light-alt: var(--bhav-gold);
+
+  --text-on-light: var(--bhav-maroon);
+  --heading-on-light: var(--bhav-crimson);
+  --text-on-dark: var(--bhav-cream);
+  --heading-on-dark: var(--bhav-gold);
+
+  --font-highlight: "Amerigo BT", var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-poppins), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bhav-maroon: #530000;
+  --color-bhav-crimson: #970601;
+  --color-bhav-cream: #FCE2BE;
+  --color-bhav-gold: #FFD18F;
+
+  --font-highlight: "Amerigo BT", var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-poppins), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  overflow-x:hidden;
-  font-family: var(--font-archivo), sans-serif;
+  background: var(--surface-light);
+  color: var(--text-on-light);
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-@keyframes marquee {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+h1,
+h2,
+h3,
+.font-highlight {
+  font-family: var(--font-highlight);
+  font-synthesis: none;
+  font-weight: 500;
+}
+
+h2,
+h3 {
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+section {
+  scroll-margin-top: 6rem;
+}
+
+/* --------------------------------------------------------------------------
+ * Buttons
+ * -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 2rem;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background-color 220ms ease, color 220ms ease,
+    transform 220ms ease, box-shadow 220ms ease;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.btn-on-dark {
+  background: var(--bhav-gold);
+  color: var(--bhav-maroon);
+  box-shadow: 0 6px 24px -8px rgb(255 209 143 / 0.6),
+    0 2px 6px -2px rgb(0 0 0 / 0.35);
+}
+.btn-on-dark:hover,
+.btn-on-dark:active {
+  background: var(--bhav-cream);
+  color: var(--bhav-maroon);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px -10px rgb(255 209 143 / 0.8),
+    0 4px 10px -2px rgb(0 0 0 / 0.4);
+}
+
+.btn-on-light {
+  background: var(--bhav-crimson);
+  color: var(--bhav-cream);
+  box-shadow: 0 6px 24px -8px rgb(151 6 1 / 0.6),
+    0 2px 6px -2px rgb(0 0 0 / 0.2);
+}
+.btn-on-light:hover,
+.btn-on-light:active {
+  background: var(--bhav-maroon);
+  color: var(--bhav-cream);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px -10px rgb(151 6 1 / 0.7),
+    0 4px 10px -2px rgb(0 0 0 / 0.25);
+}
+
+.btn:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 3px;
+}
+
+.btn-on-dark:focus-visible {
+  outline-color: var(--bhav-gold);
+}
+
+.btn-on-light:focus-visible {
+  outline-color: var(--bhav-crimson);
+}
+
+/* Inline links inside body copy */
+.prose-on-light a {
+  color: var(--bhav-crimson);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-on-dark a {
+  color: var(--bhav-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+ * Motion
+ * -------------------------------------------------------------------------- */
+@keyframes bhav-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.bhav-hero-enter {
+  animation: bhav-fade-up 800ms ease-out both;
+}
+
+.bhav-hero-enter > * {
+  animation: bhav-fade-up 800ms ease-out both;
+}
+.bhav-hero-enter > *:nth-child(1) { animation-delay: 0ms; }
+.bhav-hero-enter > *:nth-child(2) { animation-delay: 120ms; }
+.bhav-hero-enter > *:nth-child(3) { animation-delay: 240ms; }
+.bhav-hero-enter > *:nth-child(4) { animation-delay: 360ms; }
+.bhav-hero-enter > *:nth-child(5) { animation-delay: 480ms; }
+.bhav-hero-enter > *:nth-child(6) { animation-delay: 600ms; }
+
+/* --------------------------------------------------------------------------
+ * Editorial building blocks
+ * -------------------------------------------------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 2.5rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.rule-gold {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: rgb(255 209 143 / 0.35);
+  margin: 0;
+}
+
+.rule-crimson {
+  border: 0;
+  height: 1px;
+  width: 3.5rem;
+  background: var(--bhav-crimson);
+  margin: 0;
+}
+
+.section-hairline-top {
+  border-top: 1px solid rgb(255 209 143 / 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bhav-hero-enter {
+    animation: none;
+  }
 }

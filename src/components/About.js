@@ -1,80 +1,48 @@
-import Image from "next/image"
-import { Check } from "lucide-react"
-
 export default function About() {
   return (
-    <div id="aboutus" className="lg:py-20 pb-15 lg:pt-0 px-8 bg-gradient-to-b from-black via-pink-900 to-black">
-        <div className="flex flex-col gap-20 lg:gap-25 max-w-[1440px] mx-auto justify-center items-center">
-            <h2 className="font-bold text-2xl lg:text-3xl uppercase text-[#cfb781]">
-                About Us
-            </h2>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
-                    <div className="relative w-full h-full aspect-[16/9]">
-                    <Image
-                        src="/images/herobg.jpeg"
-                        alt="about-image"
-                        fill
-                        className="object-cover rounded-xl"
-                    />
-                    </div> 
-                    <div className="flex flex-col gap-8">
-                        <h4 className="text-[#cfb781] tracking-wide uppercase font-semibold">
-                        Seven Entertainment
-                        </h4>
-
-                        <h2 className="text-white text-2xl lg:text-3xl font-bold text-pretty">
-                            PREMIUM EVENT MANAGEMENT IN NEW ZEALAND
-                        </h2>
-
-                        <div className="text-white text-lg flex flex-col gap-3 ">
-                            <p>
-                            We are a complete event management company dedicated to conducting world-class live events and music showcases across Australia, New Zealand, Canada and the USA.
-                            </p>
-                            <p>
-                                From concerts to corporate events, we blend strategy, creativity and flawless execution to make every celebration extraordinary. With a commitment to quality and seamless execution, we endeavor to create events that inspire, connect, and entertain.
-                            </p>
-                        </div>
-
-                        <div className="flex lg:flex-row flex-col gap-4 lg:gap-8">
-                            <div className="flex flex-col gap-4 text-white font-bold">
-                                <div className="flex gap-3">
-                                    <Check className="text-[#cfb781]"/>
-                                    <h6>World-class Live Events</h6>
-                                </div>
-
-                                <div className="flex gap-3">
-                                    <Check className="text-[#cfb781]" />
-                                    <h6>Global Talent Access</h6>
-                                </div>
-
-                                <div className="flex gap-3">
-                                    <Check className="text-[#cfb781]" />
-                                    <h6>Premium Production Quality</h6>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col gap-4 text-white font-bold">
-                                <div className="flex gap-3">
-                                    <Check className="text-[#cfb781]"/>
-                                    <h6>Legendary Music Concerts</h6>
-                                </div>
-
-                                <div className="flex gap-3">
-                                    <Check className="text-[#cfb781]" />
-                                    <h6>Iconic Artistic Collaboration</h6>
-                                </div>
-
-                                <div className="flex gap-3">
-                                    <Check className="text-[#cfb781]" />
-                                    <h6>Strong Multinational Reach</h6>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
+    <section id="about-bhav" className="bg-bhav-cream text-bhav-maroon">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-[clamp(1.25rem,5vw,3rem)] py-[clamp(3rem,6vw,5rem)] text-center">
+        <div className="flex flex-col items-center gap-6">
+          <h2
+            className="text-bhav-crimson"
+            style={{
+              fontSize: "clamp(2rem, 4.8vw, 3.5rem)",
+              lineHeight: 1.05,
+              fontWeight: 500,
+            }}
+          >
+            About BHAV
+          </h2>
+          <hr className="rule-crimson" aria-hidden="true" />
         </div>
-      
-    </div>
-  )
+
+        <div className="flex max-w-[80ch] flex-col gap-6">
+          <p style={{ fontSize: "clamp(1rem, 1.2vw, 1.0625rem)", lineHeight: 1.75 }}>
+            BHAV, Bharatha’s 5th Vedha brings together the expressive worlds of Bharatanatyam, Carnatic music and theatre in a unique live performance.
+          </p>
+          <p style={{ fontSize: "clamp(1rem, 1.2vw, 1.0625rem)", lineHeight: 1.75 }}>
+            Rooted in the tradition of the Natya Shastra, BHAV explores the relationship between music and movement, bringing dance and live music together as one artistic experience.
+          </p>
+          <p style={{ fontSize: "clamp(1rem, 1.2vw, 1.0625rem)", lineHeight: 1.75 }}>
+            Featuring celebrated Bharatanatyam artiste and actress Padma Bhushan Shobana, alongside world-renowned Carnatic vocalist Abhishek Raghuram, BHAV offers audiences an immersive celebration of Indian classical arts.
+          </p>
+        </div>
+
+        <div className="mt-6 flex w-full flex-col items-center gap-6 border-t border-bhav-crimson/20 pt-12">
+          <hr className="rule-crimson" aria-hidden="true" />
+          <p
+            className="font-highlight italic text-bhav-crimson"
+            style={{
+              fontSize: "clamp(1.5rem, 3.4vw, 2.5rem)",
+              lineHeight: 1.3,
+              fontWeight: 400,
+              maxWidth: "28ch",
+            }}
+          >
+            Where dance meets music, and music becomes movement.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }

@@ -1,32 +1,34 @@
-import { whychoose } from "@/items/Whychooseitems"
-
 export default function WhyChoose() {
   return (
-    <div id="whychooseus" className="py-24 px-8 bg-gradient-to-tl from-black via-pink-900 to-black">
-        <div className="flex flex-col gap-20 lg:gap-15 max-w-[1440px] mx-auto justify-center items-center">
-            <div className="flex flex-col justify-center gap-6 items-center">
-                <h2 className="font-bold text-2xl lg:text-3xl uppercase text-[#cfb781]">
-                    Why Choose Us
-                </h2>
-
-                <h5 className="tracking-wider text-pretty text-white text-center">
-                    We transform every event into an unforgettable experience with creativity, precision, and world-class execution.
-                </h5>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6">
-                            {whychoose.map((i,index)=>
-                            (
-                                <div key={index} className="lg:min-w-[200px] min-w-[280px] flex flex-col w-full gap-4 items-center backdrop-blur-xl bg-white/10 py-6  px-5 rounded-lg  justify-center transition-transform duration-300 ease-out hover:scale-105">
-                                    
-                                    <span className="font-bold text-5xl text-[#cfb781] text-center">{i.count}</span>
-                                    <span className="font-semibold text-center uppercase">{i.title}</span>
-                                </div>
-                            ))}
-                            
-                        </div>
+    <section id="about-ata" className="bg-bhav-cream text-bhav-maroon">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-[clamp(1.25rem,5vw,3rem)] py-[clamp(3rem,6vw,5rem)] text-center">
+        <div className="flex flex-col items-center gap-6">
+          <h2
+            className="text-bhav-crimson"
+            style={{
+              fontSize: "clamp(2rem, 4.8vw, 3.5rem)",
+              lineHeight: 1.05,
+              fontWeight: 500,
+            }}
+          >
+            Auckland Tamil Association
+          </h2>
+          <hr className="rule-crimson" aria-hidden="true" />
+          {/* TODO: add Auckland Tamil Association logo */}
         </div>
-      
-    </div>
-  )
+
+        <div className="flex max-w-[80ch] flex-col gap-6">
+          <p style={{ fontSize: "clamp(1rem, 1.2vw, 1.0625rem)", lineHeight: 1.75 }}>
+            Auckland Tamil Association (ATA) is committed to bringing the Tamil community together through culture, heritage, arts and community engagement.
+          </p>
+          <p style={{ fontSize: "clamp(1rem, 1.2vw, 1.0625rem)", lineHeight: 1.75 }}>
+            Through its initiatives and events, ATA creates opportunities for people to celebrate Tamil identity, connect with one another and share the richness of Tamil culture with the wider Auckland community.
+          </p>
+          <p style={{ fontSize: "clamp(1rem, 1.2vw, 1.0625rem)", lineHeight: 1.75 }}>
+            For BHAV, Auckland Tamil Association is proud to bring audiences together for an exceptional evening of Indian classical dance, music and theatre, featuring Padma Bhushan Shobana.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }
